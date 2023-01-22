@@ -1,0 +1,104 @@
+<div class="card col-md-10 mt-5 mb-5 mx-2">
+    <!-- <div class="row"> -->
+        <div class="col-md-12">
+            <!-- Create Movie If ID not present -->
+            <div *ngIf="!id" class="card px-3 py-3">
+                <h5 class="form-label">Create Movie</h5>
+                <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
+                    <div class="form-group form-outline mb-2">
+                        <label for="name" class="form-label">Movie Name</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name" name="name" ngModel/>
+                        </div>
+            
+                        <div class="form-group form-outline mb-2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="genre" class="form-label">Genre</label>
+                                    <input type="text" class="form-control" id="genre" placeholder="Enter Genre" name="genre" ngModel>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="release_date">Release Date</label>
+                                    <input type="date" class="form-control" name="release_date" id="release_date" ngModel>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-outline mb-2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="directors" class="form-label">Directors</label>
+                                    <input type="text" class="form-control" id="directors" placeholder="Enter Directors name" name="directors" ngModel>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="languages">Languages</label>
+                                    <input type="text" class="form-control" name="languages" id="languages" ngModel>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-outline mb-2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="Actors" class="form-label">Actors</label>
+                                    <textarea class="form-control" id="Actors" placeholder="Enter Actors name" name="actors" ngModel></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="description">Description</label>
+                                    <textarea class="form-control" name="description" id="description" placeholder="Enter Description" ngModel></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                </form>
+            </div>
+
+            <!-- Edit Movie If ID is Present -->
+            <div *ngIf="id" class="card px-3 py-3">
+                
+                <h5 class="form-label">{{ editForm.value.name }}</h5>
+                <form #editForm = "ngForm" (ngSubmit) = "onUpdate(editForm)" >
+                    <div class="form-group form-outline mb-2">
+                        <label for="name" class="form-label">Movie Name</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name" name="name" value="{{ editForm.value.name }}" ngModel/>
+                        </div>
+            
+                        <div class="form-group form-outline mb-2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="genre" class="form-label">Genre</label>
+                                    <input type="text" class="form-control" id="genre" placeholder="Enter Genre" name="genre" ngModel>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="release_date">Release Date</label>
+                                    <input type="date" class="form-control" name="release_date" id="release_date" ngModel>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-outline mb-2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="directors" class="form-label">Directors</label>
+                                    <input type="text" class="form-control" id="directors" placeholder="Enter Directors name" name="directors" ngModel>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="languages">Languages</label>
+                                    <input type="text" class="form-control" name="languages" id="languages" ngModel>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-outline mb-2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="Actors" class="form-label">Actors</label>
+                                    <textarea class="form-control" id="Actors" placeholder="Enter Actors name" name="actors" ngModel></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="description">Description</label>
+                                    <textarea class="form-control" name="description" id="description" placeholder="Enter Description" ngModel></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                </form>
+            </div>
+        </div>
+    <!-- </div> -->
+</div>
