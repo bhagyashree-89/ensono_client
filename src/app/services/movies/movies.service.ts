@@ -27,4 +27,5 @@ export class MoviesService {
   deleteMovie(id:any) : Observable<any> {
     return this.http.delete('http://localhost:8010/movies/'+id);
   }
+  
 }
