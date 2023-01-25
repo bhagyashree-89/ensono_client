@@ -8,11 +8,13 @@ import { DataTablesModule } from 'angular-datatables';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesComponent } from './components/movies/movies.component';
 import { CreateComponent } from './components/movies/create/create.component';
+import { SearchFilterPipe } from './search-filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    CreateComponent
+    CreateComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,

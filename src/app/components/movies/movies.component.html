@@ -1,4 +1,13 @@
 <a class="btn btn-success mb-3" routerLink="/create">Create</a>
+
+<form class="wrap form-group col-md-5 mx-2 justify-content-between" style="display: inline-block;">
+    <div class="search">
+      <input class="searchTerm form-control" type="text" name="searchTerm" 
+        placeholder="Filter by movie name"
+        [(ngModel)]="searchTerm" (input)="search(searchTerm)" />
+    </div>
+</form>
+
 <div class="card col-md-10">
     <div class="card m-8 p-2">
         <div class="card-body">
@@ -14,7 +23,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let movie of allMovies">
+                <tr *ngFor="let movie of allMovies | searchFilter: searchTerm; index as i">
                     <td>{{ movie.id }}</td>
                     <td>{{ movie.name }}</td>
                     <td>{{ movie.genre }}</td>

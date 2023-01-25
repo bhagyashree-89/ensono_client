@@ -8,20 +8,28 @@ import { MoviesService } from 'src/app/services/movies/movies.service';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
+  moviesRecords:any = [];
   allMovies : any = []; 
-
+  searchTerm:any = '';
   constructor(private movieService : MoviesService) {}
 
   ngOnInit(): void {
-    this.users();
+    this.movies();
   }
 
-  users(): void {
+  movies(): void {
     this.movieService
         .movies()
         .subscribe((response: any) => {
-          this.allMovies = response.data;
+          this.moviesRecords = response.data;
+          this.allMovies = this.moviesRecords;
         });
+  }
+
+  search(value: string): void {
+    this.moviesRecords = this.allMovies.filter((val: any) =>
+      val.name.toLowerCase().includes(value)
+    );
   }
 
   deleteMovie(id:any) {

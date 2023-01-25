@@ -14,7 +14,6 @@ export class MoviesService {
 
   // to store data
   saveMovie(requestObject : any): Observable<any> {
-    console.log(requestObject);
     return this.http.post('http://localhost:8010/movies', requestObject);
   }
 
